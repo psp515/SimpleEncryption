@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "SzN1vNz5nRcB3S7OhreF4B/da5yS0kPOSRR1iI97xpDn9rTy3C+F/IKm2bWOY/R0bY7T2J4KyX0tSq42bOd3ig==",
+  "success": true,
+  "projectFilePath": "E:\\Git\\SimpleEncryption\\EncryptionApp\\EncryptionApp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\psp515\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.2\\microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
+  ],
+  "logs": []
+}
