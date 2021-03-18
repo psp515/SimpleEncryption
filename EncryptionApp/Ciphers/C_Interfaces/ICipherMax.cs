@@ -6,9 +6,9 @@ namespace EncryptionApp.Ciphers.C_Helpers
 {
     interface ICipherMax
     {
+        public string CipherCode { get; set; }
         public string Key { get; set; }
-        public int CipherCodeN { get; set; }
-        public string Encode(string str, int n);
-        public string Decode(string str, int n);
+        public string Encode(string str,string key, int n);
+        public string Decode(string str, string key, int n);
     }
 }

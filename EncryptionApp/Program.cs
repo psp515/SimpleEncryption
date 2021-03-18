@@ -5,6 +5,9 @@ namespace EncryptionApp
 {
     class Program
     {
-        static void Main(string[] args) => Starting.StartingProcess();
+        static void Main(string[] args) 
+        {
+            Starting.StartingProcess();
+        }
     }
 }

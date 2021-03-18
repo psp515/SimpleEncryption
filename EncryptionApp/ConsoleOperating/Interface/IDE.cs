@@ -6,8 +6,7 @@ namespace EncryptionApp.ConsoleOperating.Interface
 {
     interface IDE
     {
-        public void StartProcess();
-        public void GetMessage();
+        public void Process();
         public string Message { get; set; }
         public string FullCode { get; set; }
     }

@@ -5,23 +5,21 @@ using System.Text;
 
 namespace EncryptionApp.Ciphers.C_Classes
 {
-    public sealed class Condi : ICipherCode, ICipherMax
+    public sealed class Condi : ICipherMax
     {
         public string CipherCode { get; set; } = "Co";
         public string Key { get; set; }
         public int CipherCodeN { get; set; }
         public string GetCode() =>CipherCode+Key+CipherCodeN.ToString();
 
-        public string Decode(string str, int n)
+        public string Encode(string str, string key, int n)
         {
             throw new NotImplementedException();
         }
 
-        public string Encode(string str, int n)
+        public string Decode(string str, string key, int n)
         {
             throw new NotImplementedException();
         }
-
-        
     }
 }

@@ -5,21 +5,36 @@ using System.Text;
 
 namespace EncryptionApp.Ciphers.C_Classes
 {
-    public sealed class Cesar : ICipherCode, ICipherStandard
+    public sealed class Cesar : ICipherStandard
     {
         public string CipherCode { get; set; } = "C";
-        public string GetCode() => CipherCode;
+
 
         public string Decode(string str)
         {
-            throw new NotImplementedException();
+            char[] tab = str.ToCharArray();
+            for (int i = 0; i < tab.Length; i++)
+                 tab[i] = DecodeChar(tab[i]);
+           
+            return new string(tab);
         }
 
         public string Encode(string str)
         {
-            throw new NotImplementedException();
+            char[] tab = str.ToCharArray();
+            for (int i = 0; i < tab.Length; i++)
+                  tab[i] = EncodeChar(tab[i]);
+         
+            return new string(tab);
         }
 
-      
+        public  char EncodeChar(char a)
+        { 
+            return 'a'; 
+        }
+        public char DecodeChar(char a) 
+        { 
+            return 'a'; 
+        }
     }
 }

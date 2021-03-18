@@ -6,5 +6,6 @@ namespace EncryptionApp.ConsoleOperating
 {
     public class Decode
     {
+
     }
 }

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
+using EncryptionApp.Ciphers.C_Classes;
+using EncryptionApp.ConsoleOperating;
 using EncryptionApp.Helpers;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -22,15 +24,20 @@ namespace EncryptionApp.ConsoleVisualAspects
             Console.WriteLine("Press: \n" +
                "[1] - Encode message,\n" +
                "[2] - Decode message,\n" +
-               "[3] - Leave app.");
+               "[3] - Leave app.\n (press enter to Apply decision)");
             string Input = Console.ReadLine().Trim();
             if(Input=="1")
             {
-                //Encode
+               string str = GetMessage();
+               Encode e = new Encode(str);
+
+
             }
             else if(Input=="2")
             {
-                //Decode
+                string code = GetCode();
+                string str = GetMessage();
+                Decode d = new Decode();
             }
             else if(Input=="3")
             {
@@ -52,7 +59,16 @@ namespace EncryptionApp.ConsoleVisualAspects
         public static void Welcome()
         {
             Console.WriteLine("Welcome to EncryptionApp!!");
-           
+        }
+        public static string GetMessage()
+        {
+            Console.WriteLine("Write the message here: (press enter to end writing)");
+            return Console.ReadLine();
+        }
+        public static string GetCode()
+        {
+            Console.WriteLine("Write the decode code here: (press enter to end writing)");
+            return Console.ReadLine();
         }
     }
 }

@@ -5,12 +5,9 @@ using System.Text;
 
 namespace EncryptionApp.Ciphers.C_Classes
 {
-    public sealed class Scytale : ICipherCode, ICipherExtended
+    public sealed class Scytale : ICipherExtended
     {
         public string CipherCode { get; set; } = "S";
-        public int CipherCodeN { get; set; }
-        public string GetCode() => CipherCode + CipherCodeN.ToString();
-
         public string Decode(string str, int n)
         {
             throw new NotImplementedException();
