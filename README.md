@@ -20,29 +20,29 @@ User writes in console the message and the DecodeKey then app is Decoding Messag
 
 
 ### App Parts
-[ ] Ciphers - simple welcome short description of app.
-[ ] ConsoleOperating - Encode,Decode and visal aspects of app.
-[ ] Helpers - Usefull methods.
+- [ ] Ciphers - simple welcome short description of app.
+- [ ] ConsoleOperating - Encode,Decode and visal aspects of app.
+- [ ] Helpers - Usefull methods.
 
 #### ConsoleOperating
-[X] Starting
-[ ] Encode 
-[ ] Decode
+- [X] Starting
+- [ ] Encode 
+- [ ] Decode
 
 #### Ciphers
-[ ] Cesar
-[ ] Cesar Variation
-[ ] My Substitution Cipher
-[X] Fence Cipher
-[ ] Condi Cipher
-[X] Base64
-[ ] Base91
-[ ] Scytale
-[ ] Enigma
+- [ ] Cesar
+- [ ] Cesar Variation
+- [ ] My Substitution Cipher
+- [X] Fence Cipher
+- [ ] Condi Cipher
+- [X] Base64
+- [ ] Base91
+- [ ] Scytale
+- [ ] Enigma
 
 #### Helpers
-[ ] Usefull methods with Visual aspects
-[ ] Usefull methods with Encoding/Decoding
+- [ ] Usefull methods with Visual aspects
+- [ ] Usefull methods with Encoding/Decoding
 
 #### Used Environments 
 - **C#**
