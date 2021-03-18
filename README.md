@@ -1,2 +1,34 @@
 # SimpleEncryption
-Aplikacja złożona z kilkunastu szyfrów
+
+## Short Description
+Simple console app that encode/decode given string (in future encoding content in .txt file). App is using simple ciphers, cipher list below.
+
+### Enocde
+User writes the message in console (in future copies txt file route) then app is randomly selecting 3 ciphers, 
+encoding the message with use of selected ciphers and creating DecodeKey.
+
+Last thing is checking if Encoding was succesfull, it means app is decoding message with key and checking if decoded message equals message.
+
+*Input: Message
+Output: EncodedMessage, DecodeKey*
+
+### Deccode
+User writes in console the message and the DecodeKey then app is Decoding Message with given key.
+
+*Input: EncodedMessage, DecodeKey
+Output: Message*
+
+#### Ciphers
+[ ] Cesar
+[ ] Cesar Variation
+[ ] My Substitution Cipher
+[x] Fence Cipher
+[ ] Condi Cipher
+[x] Base64
+[ ] Base91
+[ ] Scytale
+[ ] Enigma
+
+#### Used Environments 
+- **C#**
+- **.NET Core**
