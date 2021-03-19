@@ -9,14 +9,14 @@ encoding the message with use of selected ciphers and creating DecodeKey.
 
 Last thing is checking if Encoding was succesfull, it means app is decoding message with key and checking if decoded message equals message.
 
-*Input: Message*
-* Output: EncodedMessage, DecodeKey*
+- *Input: Message*
+- *Output: EncodedMessage, DecodeKey*
 
 ### Deccode
 User writes in console the message and the DecodeKey then app is Decoding Message with given key.
 
-*Input: EncodedMessage, DecodeKey*
-* Output: Message*
+- *Input: EncodedMessage, DecodeKey*
+- *Output: Message*
 
 
 ### App Parts
