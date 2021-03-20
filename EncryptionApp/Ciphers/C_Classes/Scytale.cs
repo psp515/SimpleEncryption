@@ -8,6 +8,8 @@ namespace EncryptionApp.Ciphers.C_Classes
     public sealed class Scytale : ICipherExtended
     {
         public string CipherCode { get; set; } = "S";
+        public int CipherCodeN { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
         public string Decode(string str, int n)
         {
             throw new NotImplementedException();
@@ -18,5 +20,9 @@ namespace EncryptionApp.Ciphers.C_Classes
             throw new NotImplementedException();
         }
 
+        public string GetCode()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

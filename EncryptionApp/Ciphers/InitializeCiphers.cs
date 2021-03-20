@@ -8,7 +8,7 @@ namespace EncryptionApp.Ciphers
     public class InitializeCiphers
     {
         public List<CipherSI> ListSI;
-        List<CipherS> ListS;
+        public List<CipherS> ListS;
         public InitializeCiphers()
         {
 
@@ -26,15 +26,16 @@ namespace EncryptionApp.Ciphers
             Fence.Encode = Fc.Encode;
             Fence.Decode = Fc.Decode;
             Fence.IsUsed = false;
+            Fence.GetCode = Fc.GetCode;
             CipherSI cesarVariation = new CipherSI();
             cesarVariation.Code = Cv.CipherCode;
             cesarVariation.Decode = Cv.Decode;
             cesarVariation.Encode = Cv.Encode;
             cesarVariation.IsUsed = false;
+            cesarVariation.GetCode = Cv.GetCode;
 
-            //ListSI.Add(cesarVariation);
             ListSI.Add(Fence);
-
+            ListSI.Add(cesarVariation);
 
             ListS = new List<CipherS>();
 
