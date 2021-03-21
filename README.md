@@ -10,12 +10,12 @@ encoding the message with use of selected ciphers and creating DecodeKey.
 Last thing is checking if Encoding was succesfull, it means app is decoding message with key and checking if decoded message equals message.
 
 - *Input: Message*
-- *Output: EncodedMessage, DecodeKey*
+- *Output: EncodedMessage, PublicKey, PrivateKey*
 
 ### Deccode
 User writes in console the message and the DecodeKey then app is Decoding Message with given key.
 
-- *Input: EncodedMessage, DecodeKey*
+- *Input: EncodedMessage, PublicKey/PrivateKey*
 - *Output: Message*
 
 
@@ -26,12 +26,13 @@ User writes in console the message and the DecodeKey then app is Decoding Messag
 
 #### ConsoleOperating
 - [X] Starting
+- [ ] Ending
 - [ ] Encode 
 - [ ] Decode
 
 #### Ciphers
-- [ ] Cesar
-- [ ] Cesar Variation
+- [X] Cesar
+- [X] Cesar Variation
 - [ ] My Substitution Cipher
 - [X] Fence Cipher
 - [ ] Condi Cipher
