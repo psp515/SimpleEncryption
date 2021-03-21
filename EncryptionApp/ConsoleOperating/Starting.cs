@@ -24,20 +24,18 @@ namespace EncryptionApp.ConsoleVisualAspects
             Console.WriteLine("Press: \n" +
                "[1] - Encode message,\n" +
                "[2] - Decode message,\n" +
-               "[3] - Leave app.\n (press enter to Apply decision)");
+               "[3] - Leave app.\n(press enter to Apply decision)");
             string Input = Console.ReadLine().Trim();
             if(Input=="1")
             {
                string str = GetMessage();
                Encode e = new Encode(str);
-
-
             }
             else if(Input=="2")
             {
-                string code = GetCode();
-                string str = GetMessage();
-                Decode d = new Decode();
+                string Key = GetCode();
+                string EncodedMessage = GetMessage();
+                Decode d = new Decode(EncodedMessage,Key);
             }
             else if(Input=="3")
             {
@@ -46,7 +44,6 @@ namespace EncryptionApp.ConsoleVisualAspects
                 Console.WriteLine(Helpers.Helpers.GoodBye());
                 Thread.Sleep(TimeSpan.FromSeconds(2));
                 Environment.Exit(0);
-                
             }
             else
             {

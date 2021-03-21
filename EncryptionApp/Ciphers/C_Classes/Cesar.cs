@@ -77,5 +77,7 @@ namespace EncryptionApp.Ciphers.C_Classes
             else
                 return a;
         }
+
+        public string GetCode() => CipherCode;
     }
 }

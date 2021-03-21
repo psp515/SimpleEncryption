@@ -12,7 +12,6 @@ namespace EncryptionApp.Ciphers
         public InitializeCiphers()
         {
 
-            Console.WriteLine("Init");
             Cesar C = new Cesar();
             Base64 B64 = new Base64();
             CesarVariation Cv = new CesarVariation();
@@ -22,36 +21,41 @@ namespace EncryptionApp.Ciphers
             ListSI = new List<CipherSI>();
 
             CipherSI Fence = new CipherSI();
-            Fence.Code = Fc.CipherCode;
             Fence.Encode = Fc.Encode;
             Fence.Decode = Fc.Decode;
             Fence.IsUsed = false;
             Fence.GetCode = Fc.GetCode;
             CipherSI cesarVariation = new CipherSI();
-            cesarVariation.Code = Cv.CipherCode;
             cesarVariation.Decode = Cv.Decode;
             cesarVariation.Encode = Cv.Encode;
             cesarVariation.IsUsed = false;
             cesarVariation.GetCode = Cv.GetCode;
 
-            ListSI.Add(Fence);
-            ListSI.Add(cesarVariation);
+            for(int i =0;i<10;i++)
+            {
+                ListSI.Add(Fence);
+                ListSI.Add(cesarVariation);
+            }
 
             ListS = new List<CipherS>();
 
             CipherS Cesar= new CipherS();
-            Cesar.Code = C.CipherCode;
+            Cesar.GetCode = C.GetCode;
             Cesar.Encode = C.Encode;
             Cesar.Decode = C.Decode;
             Cesar.IsUsed = false;
             CipherS B6 = new CipherS();
-            B6.Code = B64.CipherCode;
+            B6.GetCode = B64.GetCode;
             B6.Decode = B64.Decode;
             B6.Encode = B64.Encode;
             B6.IsUsed = false;
 
-            ListS.Add(B6);
-            ListS.Add(Cesar);
+            for (int i = 0; i < 10; i++)
+            {
+                ListS.Add(B6);
+                ListS.Add(Cesar);
+            }
+            
         }  
     }
 }

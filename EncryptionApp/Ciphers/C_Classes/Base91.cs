@@ -18,5 +18,10 @@ namespace EncryptionApp.Ciphers.C_Classes
         {
             throw new NotImplementedException();
         }
+
+        public string GetCode()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

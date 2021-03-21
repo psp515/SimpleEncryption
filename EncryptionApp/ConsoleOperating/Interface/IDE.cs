@@ -9,6 +9,7 @@ namespace EncryptionApp.ConsoleOperating.Interface
         public void Process();
         public string Message { get; set; }
         public string EncodedMessage { get; set; }
-        public string FullCode { get; set; }
+        public string PublicKey { get; set; }
+        public string PrivateKey { get; set; }
     }
 }
