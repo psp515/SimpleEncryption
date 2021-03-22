@@ -8,6 +8,7 @@ namespace EncryptionApp.ConsoleOperating
 {
     public class Ending
     {
+        protected string DecodedMessage { get; set; }
         protected string EncodedMessage { get; set; }
         protected string PublicKey { get; set; }
         protected string PrivateKey { get; set; }
@@ -16,16 +17,29 @@ namespace EncryptionApp.ConsoleOperating
             Console.WriteLine("Sorry something went wrong :(");
             Starting.StartingProcess();
         }
+        public Ending(string decodedMessage)
+        {
+            DecodedMessage = decodedMessage;
+            EndDecode();
+        }
+
+        private void EndDecode()
+        {
+            Console.WriteLine("Your decoded message:");
+            Console.WriteLine(DecodedMessage);
+
+            EndingProcess();
+        }
 
         public Ending(string encodedMessage, string privateKey, string publicKey)
         {
             EncodedMessage = encodedMessage;
             PrivateKey = privateKey;
             PublicKey = publicKey;
-            End();
+            EndEncode();
         }
 
-        public void End()
+        public void EndEncode()
         {
             Console.WriteLine("Your private decode key:");
             Console.WriteLine(PrivateKey);
@@ -60,5 +74,6 @@ namespace EncryptionApp.ConsoleOperating
             }
             
         }
+
     }
 }

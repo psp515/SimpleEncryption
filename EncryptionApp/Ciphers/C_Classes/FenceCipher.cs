@@ -60,8 +60,6 @@ namespace EncryptionApp.Ciphers.C_Classes
                 {
                     if (row >= str.Length)
                         break;
-
-                    Console.WriteLine(j + "" + str[row]);
                     //przypisanie
                     tab[j] = str[row];
                     //okrslenie nastepnej pozycji

@@ -46,18 +46,19 @@ namespace EncryptionApp.Helpers
             EncodedMessage = Cipher_3.Encode(EncodedMessage, Helpers.Randomize(5, 13));
             //Create Keys
             PrivateKey = CreatePrivateKey(Cipher_1, Cipher_2, Cipher_3);
-            PublicKey = CreatePublicKey(PrivateKey);
+            PublicKey = CreatePublicKey(PrivateKey, Ic.ListSI[SI > 10 ? SI - 2 : SI + 3]);
 
-            // dokończ Public encode Key
             //TUTAJ SIE ROBI CZEK ENKODU JESZCZE!
 
             Ending e = new Ending(EncodedMessage,PrivateKey,PublicKey);
-
-            //klucz publiczny a prywaty rózni sie tym ze publiczny jest zaszyfrowany a prywatny nie!
         }
 
-        public static string CreatePrivateKey(CipherS s1, CipherSI s2, CipherSI s3) =>string.Format("{0}-{1}-{2}",s1.GetCode(),s2.GetCode(), s3.GetCode());
-        public static string CreatePublicKey(string privateKey) => privateKey;
+        public string CreatePrivateKey(CipherS s1, CipherSI s2, CipherSI s3) =>string.Format("{0}-{1}-{2}",s1.GetCode(),s2.GetCode(), s3.GetCode());
+        public string CreatePublicKey(string privateKey, CipherSI CSI) 
+        {
+            privateKey = CSI.Encode(privateKey,CSI.GetCode().Contains("F")?Helpers.Randomize(2,3):Helpers.Randomize(4,13));
+            return CSI.GetCode()+"-"+privateKey;
+        }
 
     }
 }
