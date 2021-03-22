@@ -1,10 +1,10 @@
 # SimpleEncryption
 
 ## Short Description
-Simple console app that encode/decode given string (in future encoding content in .txt file). App is using simple ciphers, cipher list below.
+Simple console app that encode/decode given string. App is using simple ciphers, cipher list below.
 
 ### Enocde
-User writes the message in console (in future copies txt file route) then app is randomly selecting 3 ciphers, 
+User writes the message in console then app is randomly selecting 3 ciphers, 
 encoding the message with use of selected ciphers and creating DecodeKey.
 
 Last thing is checking if Encoding was succesfull, it means app is decoding message with key and checking if decoded message equals message.
@@ -20,15 +20,14 @@ User writes in console the message and the DecodeKey then app is Decoding Messag
 
 
 ### App Parts
-- [ ] Ciphers - simple welcome short description of app.
-- [ ] ConsoleOperating - Encode,Decode and visal aspects of app.
-- [ ] Helpers - Usefull methods.
+- [X] Ciphers - simple welcome short description of app.
+- [X] Helpers - Usefull methods.
 
 #### ConsoleOperating
 - [X] Starting
-- [ ] Ending
-- [ ] Encode 
-- [ ] Decode
+- [X] Ending
+- [X] Encode 
+- [X] Decode
 
 #### Ciphers
 - [X] Cesar
@@ -41,9 +40,7 @@ User writes in console the message and the DecodeKey then app is Decoding Messag
 - [ ] Scytale
 - [ ] Enigma
 
-#### Helpers
-- [ ] Usefull methods with Visual aspects
-- [ ] Usefull methods with Encoding/Decoding
+
 
 #### Used Environments 
 - **C#**
