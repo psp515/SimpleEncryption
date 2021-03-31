@@ -44,3 +44,6 @@ User writes in console the message and the DecodeKey then app is Decoding Messag
 #### Used Environments 
 - **C#**
 - **.NET Core**
+
+#### Status
+- in progress
