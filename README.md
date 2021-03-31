@@ -1,9 +1,8 @@
 # SimpleEncryption
 
-## Short Description
 Simple console app that encode/decode given string. App is using simple ciphers, cipher list below.
 
-### Enocde
+## Enocde
 User writes the message in console then app is randomly selecting 3 ciphers, 
 encoding the message with use of selected ciphers and creating DecodeKey.
 
@@ -12,7 +11,7 @@ Last thing is checking if Encoding was succesfull, it means app is decoding mess
 - *Input: Message*
 - *Output: EncodedMessage, PublicKey, PrivateKey*
 
-### Deccode
+## Deccode
 User writes in console the message and the DecodeKey then app is Decoding Message with given key.
 
 - *Input: EncodedMessage, PublicKey/PrivateKey*
