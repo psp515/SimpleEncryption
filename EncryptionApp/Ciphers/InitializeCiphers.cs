@@ -1,4 +1,5 @@
 ﻿using EncryptionApp.Ciphers.C_Classes;
+using EncryptionApp.Ciphers.CipherStr;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,55 +8,73 @@ namespace EncryptionApp.Ciphers
 {
     public class InitializeCiphers
     {
-        public List<CipherSI> ListSI;
-        public List<CipherS> ListS;
+        public List<CipherStrIntModel> ListSI;
+        public List<CipherStrModel> ListS;
         public InitializeCiphers()
         {
+            //List Init
+            ListSI = new List<CipherStrIntModel>();
+            ListS = new List<CipherStrModel>();
 
-            Cesar C = new Cesar();
-            Base64 B64 = new Base64();
-            CesarVariation Cv = new CesarVariation();
-            FenceCipher Fc = new FenceCipher();
-            
+            //CipherStr
+            Caesar caesarModel = new Caesar();
+            Base64 base64Model = new Base64();
+            ROT13 ROT13Model = new ROT13();
+            ROT18 ROT18Model = new ROT18();
 
-            ListSI = new List<CipherSI>();
+            //CipherStrInt
+            CaesarVariation caesarVariationModel = new CaesarVariation();
+            RailFenceCipher fenceCipherModel = new RailFenceCipher();
+            Scytale scytaleModel = new Scytale();
 
-            CipherSI Fence = new CipherSI();
-            Fence.Encode = Fc.Encode;
-            Fence.Decode = Fc.Decode;
-            Fence.IsUsed = false;
-            Fence.GetCode = Fc.GetCode;
-            CipherSI cesarVariation = new CipherSI();
-            cesarVariation.Decode = Cv.Decode;
-            cesarVariation.Encode = Cv.Encode;
-            cesarVariation.IsUsed = false;
-            cesarVariation.GetCode = Cv.GetCode;
+            //CiphersStrIntModel
+            CipherStrIntModel fence = new CipherStrIntModel();
+            fence.Encode = fenceCipherModel.Encode;
+            fence.Decode = fenceCipherModel.Decode;
+            fence.GetCode = fenceCipherModel.GetCode;
+            CipherStrIntModel cesarVariation = new CipherStrIntModel();
+            cesarVariation.Decode = caesarVariationModel.Decode;
+            cesarVariation.Encode = caesarVariationModel.Encode;
+            cesarVariation.GetCode = caesarVariationModel.GetCode;
+            CipherStrIntModel scytale = new CipherStrIntModel();
+            scytale.Decode = scytaleModel.Decode;
+            scytale.Encode = scytaleModel.Encode;
+            scytale.GetCode = scytaleModel.GetCode;
 
-            for(int i =0;i<10;i++)
+            //AddCiphersStrInt
+            for(int i =0;i<2;i++)
             {
-                ListSI.Add(Fence);
+                ListSI.Add(fence);
                 ListSI.Add(cesarVariation);
+                ListSI.Add(scytale);
             }
 
-            ListS = new List<CipherS>();
+            //CiphersStrModel
+            CipherStrModel caesar = new CipherStrModel();
+            caesar.GetCode = caesarModel.GetCode;
+            caesar.Encode = caesarModel.Encode;
+            caesar.Decode = caesarModel.Decode;
+            CipherStrModel base64 = new CipherStrModel();
+            base64.GetCode = base64Model.GetCode;
+            base64.Decode = base64Model.Decode;
+            base64.Encode = base64Model.Encode;
+            CipherStrModel ROT13 = new CipherStrModel();
+            ROT13.GetCode = ROT13Model.GetCode;
+            ROT13.Encode = ROT13Model.Encode;
+            ROT13.Decode = ROT13Model.Decode;
+            CipherStrModel ROT18 = new CipherStrModel();
+            ROT18.GetCode = ROT18Model.GetCode;
+            ROT18.Encode = ROT18Model.Encode;
+            ROT18.Decode = ROT18Model.Decode;
 
-            CipherS Cesar= new CipherS();
-            Cesar.GetCode = C.GetCode;
-            Cesar.Encode = C.Encode;
-            Cesar.Decode = C.Decode;
-            Cesar.IsUsed = false;
-            CipherS B6 = new CipherS();
-            B6.GetCode = B64.GetCode;
-            B6.Decode = B64.Decode;
-            B6.Encode = B64.Encode;
-            B6.IsUsed = false;
-
-            for (int i = 0; i < 10; i++)
+            //AddCiphersStr
+            for(int i =0;i<2; i++)
             {
-                ListS.Add(B6);
-                ListS.Add(Cesar);
+                ListS.Add(base64);
+                ListS.Add(caesar);
+                ListS.Add(ROT13);
+                ListS.Add(ROT13);
             }
-            
         }  
     }
 }

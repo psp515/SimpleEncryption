@@ -5,7 +5,6 @@ using System.Threading;
 using EncryptionApp.Ciphers.C_Classes;
 using EncryptionApp.ConsoleOperating;
 using EncryptionApp.Helpers;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace EncryptionApp.ConsoleVisualAspects
 {
@@ -14,58 +13,79 @@ namespace EncryptionApp.ConsoleVisualAspects
         public static void StartingProcess()
         {
             Console.Title = "EncryptionApp";
-            Welcome();
-            ReadInput();
+            Console.WriteLine("\t\t\tWelcome to EncryptionApp!!");
+            Action menu = delegate ()
+            {
+                Helpers.Helpers.TextBreak();
+                Console.WriteLine("List of possible options: \n" +
+               "[1] - Encode message\n" +
+               "[2] - Decode message\n" +
+               "[3] - Leave app\n(press enter to Apply decision)");
+                Helpers.Helpers.TextBreak();
+            };
+            int choice = Helpers.Helpers.GetUserChoice(menu, 1, 3, "Main");
+            FindOption(choice);
         }
-
-        private static void ReadInput()
+        private static void FindOption(int choice)
         {
-            Start:
-            Console.WriteLine("Press: \n" +
-               "[1] - Encode message,\n" +
-               "[2] - Decode message,\n" +
-               "[3] - Leave app.\n(press enter to Apply decision)");
-            string Input = Console.ReadLine().Trim();
-            if(Input=="1")
+            
+            if(choice == 1)
             {
-               string str = GetMessage();
-               Encode e = new Encode(str);
+                string message = GetMessage();
+                Encode e = new Encode(message);
             }
-            else if(Input=="2")
+            else if(choice == 2)
             {
-                string Key = GetCode();
-                string EncodedMessage = GetMessage();
-                Decode d = new Decode(EncodedMessage,Key);
+                string key = Helpers.Helpers.GetString("Write the decode code here: (press enter to end writing)");
+                string encodedMessage = GetMessage();
+                Console.WriteLine("---------------------------------------------------------------");
+                Decode d = new Decode(encodedMessage,key);
             }
-            else if(Input=="3")
+            else if(choice == 3)
             {
-                Thread.Sleep(TimeSpan.FromSeconds(0.5));
-                Console.WriteLine("Thanks for spending time with my app.");
-                Console.WriteLine(Helpers.Helpers.GoodBye());
-                Thread.Sleep(TimeSpan.FromSeconds(2));
-                Environment.Exit(0);
+                Ending e = new Ending();
+                e.QuitApp();
+            }
+            else if (choice == -1)
+            {
+                StartingProcess();
+            }
+            else
+                Helpers.Helpers.Error();
+            
+        }
+        private static string GetMessage()
+        {
+            start:
+            Console.Clear();
+            Action menu = delegate ()
+            {
+                Console.WriteLine("\t\t\tEncode Options");
+                Helpers.Helpers.TextBreak();
+                Console.WriteLine("List of possible options: \n" +
+               "[1] - Write message in console\n" +
+               "[2] - Attach txt file (work in progress)\n(press enter to Apply decision)");
+                Helpers.Helpers.TextBreak();
+            };
+            int choice = Helpers.Helpers.GetUserChoice(menu, 1, 3, "Message");
+
+            if (choice == 1)
+            {
+                return Helpers.Helpers.GetString("Please, write message now:");
+            }
+            else if (choice == 2)
+            {
+                return Helpers.Helpers.GetString("Please, write message now:");
+            }
+            else if (choice == -1)
+            {
+                goto start;
             }
             else
             {
-                Console.WriteLine("Please choose the correct option.");
-                goto Start;
+                Helpers.Helpers.Error();
+                return null;
             }
-
-        }
-
-        public static void Welcome()
-        {
-            Console.WriteLine("Welcome to EncryptionApp!!");
-        }
-        public static string GetMessage()
-        {
-            Console.WriteLine("Write the message here: (press enter to end writing)");
-            return Console.ReadLine();
-        }
-        public static string GetCode()
-        {
-            Console.WriteLine("Write the decode code here: (press enter to end writing)");
-            return Console.ReadLine();
-        }
+        }    
     }
 }

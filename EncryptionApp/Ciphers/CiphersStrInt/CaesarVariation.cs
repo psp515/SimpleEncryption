@@ -1,35 +1,36 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using EncryptionApp.Ciphers.C_Helpers;
+
+using EncryptionApp.Ciphers.CiphersStrInt;
 
 namespace EncryptionApp.Ciphers.C_Classes
 {
-    public sealed class CesarVariation :  ICipherExtended
+    public class CaesarVariation :  CipherStrIntClass
     {
-        public string CipherCode { get; set; } = "C";
-        public int CipherCodeN { get; set; }
+        protected override string CipherCode { get; set; } = "C";
+        protected override int CipherCodeN { get; set; }
 
-        public string Decode(string str, int shift)
+        public override string Decode(string message, int key)
         {
-            CipherCodeN = shift;
-            char[] tab = str.ToCharArray();
+            CipherCodeN = key;
+            char[] tab = message.ToCharArray();
             for (int i = 0; i < tab.Length; i++)
-                tab[i] = DecodeChar(tab[i], shift);
+                tab[i] = DecodeChar(tab[i], key);
 
             return new string(tab);
         }
-        public string Encode(string str, int shift)
+        public override string Encode(string message, int key)
         {
-            CipherCodeN = shift;
-            char[] tab = str.ToCharArray();
+            CipherCodeN = key;
+            char[] tab = message.ToCharArray();
             for (int i = 0; i < tab.Length; i++)
-                tab[i] = EncodeChar(tab[i], shift);
+                tab[i] = EncodeChar(tab[i], key);
 
             return new string(tab);
         }
 
-        public char EncodeChar(char a, int n)
+        private char EncodeChar(char a, int n)
         {
             if (Char.IsUpper(a))
             {
@@ -64,7 +65,7 @@ namespace EncryptionApp.Ciphers.C_Classes
             else
                 return a;
         }
-        public char DecodeChar(char a, int n)
+        private char DecodeChar(char a, int n)
         {
             if (Char.IsUpper(a))
             {
@@ -99,7 +100,5 @@ namespace EncryptionApp.Ciphers.C_Classes
             else
                 return a;
         }
-
-        public string GetCode() => CipherCode + CipherCodeN.ToString("D2");
     }
 }

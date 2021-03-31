@@ -12,15 +12,22 @@ namespace EncryptionApp.ConsoleOperating
         protected string EncodedMessage { get; set; }
         protected string PublicKey { get; set; }
         protected string PrivateKey { get; set; }
+
         public Ending()
         {
-            Console.WriteLine("Sorry something went wrong :(");
-            Starting.StartingProcess();
+            
         }
         public Ending(string decodedMessage)
         {
             DecodedMessage = decodedMessage;
             EndDecode();
+        }
+        public Ending(string encodedMessage, string privateKey, string publicKey)
+        {
+            EncodedMessage = encodedMessage;
+            PrivateKey = privateKey;
+            PublicKey = publicKey;
+            EndEncode();
         }
 
         private void EndDecode()
@@ -30,17 +37,11 @@ namespace EncryptionApp.ConsoleOperating
 
             EndingProcess();
         }
-
-        public Ending(string encodedMessage, string privateKey, string publicKey)
-        {
-            EncodedMessage = encodedMessage;
-            PrivateKey = privateKey;
-            PublicKey = publicKey;
-            EndEncode();
-        }
-
         public void EndEncode()
         {
+            Console.Clear();
+            Console.WriteLine("\t\t\tMessage Encrypted");
+            Helpers.Helpers.TextBreak();
             Console.WriteLine("Your private decode key:");
             Console.WriteLine(PrivateKey);
             Console.WriteLine("Your public decode key:");
@@ -53,7 +54,8 @@ namespace EncryptionApp.ConsoleOperating
 
         private void EndingProcess()
         {
-            Start:
+        Start:
+            Helpers.Helpers.TextBreak();
             Console.WriteLine("Do you want to leave app?");
             Console.WriteLine("[1] - Quit \n[2] - Main Menu\n(enter to Apply decision)");
             string a=Console.ReadLine();
@@ -73,6 +75,15 @@ namespace EncryptionApp.ConsoleOperating
                 goto Start;
             }
             
+        }
+
+        public void QuitApp()
+        {
+            Thread.Sleep(TimeSpan.FromSeconds(0.5));
+            Console.WriteLine("Thanks for spending time with my app.");
+            Console.WriteLine(Helpers.Helpers.GoodBye());
+            Thread.Sleep(TimeSpan.FromSeconds(2));
+            Environment.Exit(0);
         }
 
     }

@@ -45,12 +45,12 @@ namespace EncryptionApp.ConsoleOperating
 
             if(key[0]=='F')
             {
-                FenceCipher fc = new FenceCipher();
+                RailFenceCipher fc = new RailFenceCipher();
                 return fc.Decode(encodedPart, a);
             }
             else
             {
-                CesarVariation cs = new CesarVariation();
+                CaesarVariation cs = new CaesarVariation();
                 return cs.Decode(encodedPart, a);
             }
         }
@@ -81,7 +81,7 @@ namespace EncryptionApp.ConsoleOperating
             }
             else
             {
-                Cesar c = new Cesar();
+                Caesar c = new Caesar();
                 return c.Decode(encodedMessage);
             }
         }
@@ -90,12 +90,12 @@ namespace EncryptionApp.ConsoleOperating
         {
             if(code=="F")
             {
-                FenceCipher fc = new FenceCipher();
+                RailFenceCipher fc = new RailFenceCipher();
                 return fc.Decode(eMessage, a);
             }
             else
             {
-                CesarVariation cv = new CesarVariation();
+                CaesarVariation cv = new CaesarVariation();
                 return cv.Decode(eMessage, a);
             }
         }
