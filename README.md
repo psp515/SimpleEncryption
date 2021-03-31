@@ -31,19 +31,17 @@ User writes in console the message and the DecodeKey then app is Decoding Messag
 #### Ciphers
 - [X] Cesar
 - [X] Cesar Variation
-- [ ] My Substitution Cipher
 - [X] Fence Cipher
-- [ ] Condi Cipher
 - [X] Base64
-- [ ] Base91
-- [ ] Scytale
-- [ ] Enigma
+- [X] Scytale
+- [X] ROT13
+- [X] ROT18
 
 
 
 #### Used Environments 
-- **C#**
-- **.NET Core**
+- C#
+- .NET Core
 
 #### Status
 - in progress
