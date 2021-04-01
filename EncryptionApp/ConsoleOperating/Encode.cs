@@ -23,25 +23,19 @@ namespace EncryptionApp.Helpers
         public Encode(string str)
         {
            Message = str;
-           Process();
         }
 
         public void Process()
         {
             InitializeCiphers Ic = new InitializeCiphers();
+
             int S = Helpers.Randomize(0, 7);
             int SI = Helpers.Randomize(0, 5);
             int SI2 = Helpers.Randomize(0, 5);
-            do
-            {
-                 SI2 = Helpers.Randomize(0, 5);
-            }
-            while (SI==SI2);
-            
 
             CipherStrModel Cipher_1 = Ic.ListS[S];
             CipherStrIntModel Cipher_2 = Ic.ListSI[SI];
-            CipherStrIntModel Cipher_3 = Ic.ListSI[SI2];
+            CipherStrIntModel Cipher_3 = Ic.ListSI[SI>2?SI-1:SI+1];
 
             //1st Encode
             EncodedMessage = Cipher_1.Encode(Message);

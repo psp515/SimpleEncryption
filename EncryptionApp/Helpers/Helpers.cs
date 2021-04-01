@@ -13,7 +13,7 @@ namespace EncryptionApp.Helpers
             Random a = new Random();
             return a.Next(min, max);
         }
-        public static void TextBreak() => Console.WriteLine("---------------------------------------------------------------");
+        public static void TextBreak() => Console.WriteLine("-------------------------------------------------------------------");
         public static string GoodBye()
         {
             int a = Randomize(1, 6);
@@ -72,7 +72,7 @@ namespace EncryptionApp.Helpers
             Console.Clear();
             Console.WriteLine("An error has occurred.");
             Console.WriteLine("Moving to main menu...");
-            Program.Main();
+            Program.Starting();
         }
         public static void WrongOption()
         {
@@ -80,5 +80,6 @@ namespace EncryptionApp.Helpers
             Console.WriteLine("Wrong option. Please select correct option...");
             Thread.Sleep(2000);
         }
+        public static string CreateEncodeOutput(string encodedMessage, string privateKey, string publicKey) => string.Format("Your private decode key: \n{0}\nYour public decode key: \n{1}\nYour Encoded Message: \n{2}", privateKey, publicKey, encodedMessage);
     }
 }

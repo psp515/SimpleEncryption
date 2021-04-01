@@ -1,0 +1,7 @@
+Your private decode key: 
+C00-C08-F06
+Your public decode key: 
+B64-QzAwLUMwOC1GMDY=
+Your Encoded Message: 
+lvhmuxfjntyeoszdpracqb
+ Enjoy!

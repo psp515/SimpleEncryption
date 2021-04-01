@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace EncryptionApp.Helpers
+namespace EncryptionApp.ConsoleOperating
 {
-    public class CreateFile
+    public class EncodeStarting
     {
 
     }

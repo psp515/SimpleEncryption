@@ -1,4 +1,5 @@
 ﻿using EncryptionApp.ConsoleVisualAspects;
+using EncryptionApp.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -42,43 +43,35 @@ namespace EncryptionApp.ConsoleOperating
             Console.Clear();
             Console.WriteLine("\t\t\tMessage Encrypted");
             Helpers.Helpers.TextBreak();
-            Console.WriteLine("Your private decode key:");
-            Console.WriteLine(PrivateKey);
-            Console.WriteLine("Your public decode key:");
-            Console.WriteLine(PublicKey);
-            Console.WriteLine("Your Encoded Message");
-            Console.WriteLine(EncodedMessage);
-
+            FileOptions fileOptions = new FileOptions(EncodedMessage, PrivateKey, PublicKey);
+            fileOptions.Create();
+            Console.WriteLine(Helpers.Helpers.CreateEncodeOutput(EncodedMessage, PrivateKey, PublicKey));
             EndingProcess();
         }
 
         private void EndingProcess()
         {
-        Start:
-            Helpers.Helpers.TextBreak();
-            Console.WriteLine("Do you want to leave app?");
-            Console.WriteLine("[1] - Quit \n[2] - Main Menu\n(enter to Apply decision)");
-            string a=Console.ReadLine();
-            if (a.Trim() == "1")
+            Action writeMenu = delegate ()
             {
-                Thread.Sleep(TimeSpan.FromSeconds(0.5));
-                Console.WriteLine("Thanks for spending time with my app.");
-                Console.WriteLine(Helpers.Helpers.GoodBye());
-                Thread.Sleep(TimeSpan.FromSeconds(2));
-                Environment.Exit(0);
+                Helpers.Helpers.TextBreak();
+                Console.WriteLine("Do you want to leave app?");
+                Console.WriteLine("[1] - Main Menu\n[2] - Quit\n(enter to Apply decision)");
+            };
+            int a = Helpers.Helpers.GetUserChoice(writeMenu,1,2,"Ending Menu");
+            if (a == 1)
+            {
+                Console.Clear();
+                Program.Starting();
             }
-            else if (a.Trim() == "2")
-                Starting.StartingProcess();
+            else if (a == 2)
+                QuitApp();
             else
-            {
-                Console.WriteLine("Please choose the correct option.");
-                goto Start;
-            }
-            
+                EndEncode();
         }
 
         public void QuitApp()
         {
+            Console.Clear();
             Thread.Sleep(TimeSpan.FromSeconds(0.5));
             Console.WriteLine("Thanks for spending time with my app.");
             Console.WriteLine(Helpers.Helpers.GoodBye());
