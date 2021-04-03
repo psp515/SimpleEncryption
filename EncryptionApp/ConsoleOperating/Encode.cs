@@ -27,6 +27,8 @@ namespace EncryptionApp.Helpers
 
         public void Process()
         {
+            Console.WriteLine(Message);
+            Console.ReadLine();
             InitializeCiphers Ic = new InitializeCiphers();
 
             int S = Helpers.Randomize(0, 7);

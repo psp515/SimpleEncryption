@@ -1,7 +1,9 @@
 ﻿using EncryptionApp.ConsoleOperating;
 using EncryptionApp.ConsoleVisualAspects;
+using EncryptionApp.FilesManagement;
 using EncryptionApp.Helpers;
 using System;
+using System.Threading;
 
 namespace EncryptionApp
 {
@@ -36,19 +38,23 @@ namespace EncryptionApp
 
             if (choice == 1)
             {
-                Starting s = new Starting();
-                s.StartingEncode();
+                EncodeStarting encodeStarting = new EncodeStarting();
+                encodeStarting.GetEncodedMessage();
             }
             else if (choice == 2)
             {
                 Starting s = new Starting();
                 s.StartingDecode();
-                
             }
             else if (choice == 3)
             {
-                FileOptions fileOptions =new FileOptions();
-                fileOptions.CreateDirectoryMenu();
+                DirectoryManagement directoryManagement = new DirectoryManagement();
+                directoryManagement.CreateMainDirectories();
+                Console.Clear();
+                Console.WriteLine("Directories has been  created. Moving to Main Menu...");
+                Thread.Sleep(2500);
+                Console.Clear();
+                Starting();
             }
             else if (choice == 4)
             {

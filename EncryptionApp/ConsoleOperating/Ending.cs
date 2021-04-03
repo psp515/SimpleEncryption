@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
+using EncryptionApp.FilesManagement;
 
 namespace EncryptionApp.ConsoleOperating
 {
@@ -43,8 +44,8 @@ namespace EncryptionApp.ConsoleOperating
             Console.Clear();
             Console.WriteLine("\t\t\tMessage Encrypted");
             Helpers.Helpers.TextBreak();
-            FileOptions fileOptions = new FileOptions(EncodedMessage, PrivateKey, PublicKey);
-            fileOptions.Create();
+            FilesManagement.FilesManagement filesManagement = new FilesManagement.FilesManagement(EncodedMessage, PrivateKey,PublicKey);
+            filesManagement.CreateFile();
             Console.WriteLine(Helpers.Helpers.CreateEncodeOutput(EncodedMessage, PrivateKey, PublicKey));
             EndingProcess();
         }

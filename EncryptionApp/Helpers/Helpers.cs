@@ -72,6 +72,8 @@ namespace EncryptionApp.Helpers
             Console.Clear();
             Console.WriteLine("An error has occurred.");
             Console.WriteLine("Moving to main menu...");
+            Thread.Sleep(2000);
+            Console.Clear();
             Program.Starting();
         }
         public static void WrongOption()
