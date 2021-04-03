@@ -1,7 +1,0 @@
-Your private decode key: 
-C00-F06-C15
-Your public decode key: 
-R13-P00-S06-P15
-Your Encoded Message: 
-6099170qz89xl98yx0z.
-File created: 03.04.2021 21:58:26

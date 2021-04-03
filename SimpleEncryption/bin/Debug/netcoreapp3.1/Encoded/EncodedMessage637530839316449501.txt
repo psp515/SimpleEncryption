@@ -1,7 +1,0 @@
-Your private decode key: 
-R13-C12-S08
-Your public decode key: 
-R13-E13-P12-F08
-Your Encoded Message: 
-qqcsdrq fsexqds qcxtrsg sxijfg  gieigr  .
-File created: 03.04.2021 21:58:51
