@@ -39,6 +39,7 @@ namespace SimpleEncryption.ConsoleControl.Encryption
             Message = Cipher_2.Encode(Message, Helpers.Randomize(6, 17));
             //3rd Encode
             Message = Cipher_3.Encode(Message, Helpers.Randomize(6, 17));
+            Message += ".";
             //Create Keys
             PrivateKey = CreatePrivateKey(Cipher_1, Cipher_2, Cipher_3);
             PublicKey = CreatePublicKey(PrivateKey, Ic.ListS[(int)(S / 2)]);

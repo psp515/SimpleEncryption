@@ -1,0 +1,7 @@
+Your private decode key: 
+R13-C06-F10
+Your public decode key: 
+C00-U13-F06-I10
+Your Encoded Message: 
+67c9r7z9y8w0ahzeyz.
+File created: 03.04.2021 21:58:35

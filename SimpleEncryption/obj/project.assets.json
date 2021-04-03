@@ -15,11 +15,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\SimpleEncryption\\SimpleEncryption.csproj",
+      "projectUniqueName": "E:\\Git\\SimpleEncryption\\SimpleEncryption\\SimpleEncryption.csproj",
       "projectName": "SimpleEncryption",
-      "projectPath": "E:\\SimpleEncryption\\SimpleEncryption.csproj",
+      "projectPath": "E:\\Git\\SimpleEncryption\\SimpleEncryption\\SimpleEncryption.csproj",
       "packagesPath": "C:\\Users\\psp515\\.nuget\\packages\\",
-      "outputPath": "E:\\SimpleEncryption\\obj\\",
+      "outputPath": "E:\\Git\\SimpleEncryption\\SimpleEncryption\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",

@@ -1,6 +1,6 @@
 # SimpleEncryption
 
-Simple console app that encode/decode given string. App is using simple ciphers, cipher list below.
+Simple console app that encode/decode given string. User will be able to attach encoded file. Application wil be creating 2 files after encode (one wit encoded message and one with full info) and 1 after decode ( file will contain decoded message). App is using simple ciphers, cipher list below.
 
 ## Enocde
 User writes the message in console then app is randomly selecting 3 ciphers, 
@@ -21,12 +21,15 @@ User writes in console the message and the DecodeKey then app is Decoding Messag
 ### App Parts
 - [X] Ciphers - simple welcome short description of app.
 - [X] Helpers - Usefull methods.
+- [ ] ConsoleControl
+- [X] Models
 
-#### ConsoleOperating
-- [X] Starting
-- [X] Ending
+#### ConsoleControl
+- [X] GetDecodeInfo
+- [X] GetEncodeInfo
+- [X] End
 - [X] Encode 
-- [X] Decode
+- [ ] Decode
 
 #### Ciphers
 - [X] Cesar
@@ -36,8 +39,6 @@ User writes in console the message and the DecodeKey then app is Decoding Messag
 - [X] Scytale
 - [X] ROT13
 - [X] ROT18
-
-
 
 #### Used Environments 
 - C#

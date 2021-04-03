@@ -24,3 +24,16 @@ E:\SimpleEncryption\obj\Debug\netcoreapp3.1\SimpleEncryption.csproj.CoreCompileI
 E:\SimpleEncryption\obj\Debug\netcoreapp3.1\SimpleEncryption.dll
 E:\SimpleEncryption\obj\Debug\netcoreapp3.1\SimpleEncryption.pdb
 E:\SimpleEncryption\obj\Debug\netcoreapp3.1\SimpleEncryption.genruntimeconfig.cache
+E:\Git\SimpleEncryption\SimpleEncryption\bin\Debug\netcoreapp3.1\SimpleEncryption.exe
+E:\Git\SimpleEncryption\SimpleEncryption\bin\Debug\netcoreapp3.1\SimpleEncryption.deps.json
+E:\Git\SimpleEncryption\SimpleEncryption\bin\Debug\netcoreapp3.1\SimpleEncryption.runtimeconfig.json
+E:\Git\SimpleEncryption\SimpleEncryption\bin\Debug\netcoreapp3.1\SimpleEncryption.runtimeconfig.dev.json
+E:\Git\SimpleEncryption\SimpleEncryption\bin\Debug\netcoreapp3.1\SimpleEncryption.dll
+E:\Git\SimpleEncryption\SimpleEncryption\bin\Debug\netcoreapp3.1\SimpleEncryption.pdb
+E:\Git\SimpleEncryption\SimpleEncryption\obj\Debug\netcoreapp3.1\SimpleEncryption.csprojAssemblyReference.cache
+E:\Git\SimpleEncryption\SimpleEncryption\obj\Debug\netcoreapp3.1\SimpleEncryption.AssemblyInfoInputs.cache
+E:\Git\SimpleEncryption\SimpleEncryption\obj\Debug\netcoreapp3.1\SimpleEncryption.AssemblyInfo.cs
+E:\Git\SimpleEncryption\SimpleEncryption\obj\Debug\netcoreapp3.1\SimpleEncryption.csproj.CoreCompileInputs.cache
+E:\Git\SimpleEncryption\SimpleEncryption\obj\Debug\netcoreapp3.1\SimpleEncryption.dll
+E:\Git\SimpleEncryption\SimpleEncryption\obj\Debug\netcoreapp3.1\SimpleEncryption.pdb
+E:\Git\SimpleEncryption\SimpleEncryption\obj\Debug\netcoreapp3.1\SimpleEncryption.genruntimeconfig.cache
