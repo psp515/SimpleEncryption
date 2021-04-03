@@ -74,8 +74,8 @@ namespace EncryptionApp.FilesManagement
             }
         }
 
-        public string ReadDecodingFile(string fileName) => ReadFile(@"C:\EncryptionApp\Encoded\" + (fileName.Contains(".txt") ? "" : fileName + ".txt"));
-        public string ReadEncodingFile(string fileName) => ReadFile(@"C:\EncryptionApp\Decoded\" + (fileName.Contains(".txt") ? "" : fileName + ".txt"));
+        public string ReadFileDecodedDirectory(string fileName) => ReadFile(string.Format(@"C:\EncryptionApp\Decoded\" + (fileName.Contains(".txt") ? fileName : fileName + ".txt")));
+        public string ReadFileEncodedDirectory(string fileName) => ReadFile(@"C:\EncryptionApp\Encoded\" + (fileName.Contains(".txt") ? fileName : fileName + ".txt"));
 
         public string ReadFile(string fileName)
         {

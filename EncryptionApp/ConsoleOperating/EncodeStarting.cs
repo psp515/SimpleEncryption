@@ -20,24 +20,25 @@ namespace EncryptionApp.ConsoleOperating
             FindOption(Helpers.Helpers.GetUserChoice(menu,1,2,"Attachment"));
         }
 
-        private void FindOption(int v)
+        private void FindOption(int choice)
         {
-            if (v == 1)
+            if (choice == 1)
             {
                 StartEncode(Helpers.Helpers.GetString("Please provide a message:"));
             }
-            else if (v == 2)
+            else if (choice == 2)
             {
-                string fileName = Helpers.Helpers.GetString(@"Please provide the file name: (file should be in C:\EncryptionApp\Encode\)");
+                string fileName = Helpers.Helpers.GetString(@"Please provide the file name: (wiret only file name also file should be in C:\EncryptionApp\Encode\)");
                 FilesManagement.FilesManagement filesManagement = new FilesManagement.FilesManagement();
-                string encodedMessage= filesManagement.ReadFile(fileName);
-                StartEncode(encodedMessage);
+                string encodedMessage = filesManagement.ReadFile(fileName.Trim());
+                StartEncode(encodedMessage.Trim());
             }
-            else
+            else if (choice == -1)
             {
-                Helpers.Helpers.WrongOption();
                 GetEncodedMessage();
             }
+            else
+                Helpers.Helpers.Error();
         }
 
         private void StartEncode(string encodedMessage)

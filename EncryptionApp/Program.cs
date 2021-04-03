@@ -12,10 +12,10 @@ namespace EncryptionApp
         public static bool isFirst { get; set; }
         static void Main() 
         {
-            Starting();
             Console.Title = "EncryptionApp";
             Console.WriteLine("\t\t\tWelcome to EncryptionApp!!");
             isFirst = true;
+            Starting();
         }
 
         public static void Starting()
@@ -29,8 +29,8 @@ namespace EncryptionApp
                 Console.WriteLine("List of possible options: \n[1] - Encode message\n[2] - Decode message\n[3] - Create Directory\n[4] - Leave app\n(press enter to Apply decision)");
                 Helpers.Helpers.TextBreak();
             };
-            int choice = Helpers.Helpers.GetUserChoice(menu, 1, 3, "Main");
-            FindOption(choice);
+            
+            FindOption(Helpers.Helpers.GetUserChoice(menu, 1, 3, "Main"));
         }
 
         private static void FindOption(int choice)
@@ -50,10 +50,6 @@ namespace EncryptionApp
             {
                 DirectoryManagement directoryManagement = new DirectoryManagement();
                 directoryManagement.CreateMainDirectories();
-                Console.Clear();
-                Console.WriteLine("Directories has been  created. Moving to Main Menu...");
-                Thread.Sleep(2500);
-                Console.Clear();
                 Starting();
             }
             else if (choice == 4)
