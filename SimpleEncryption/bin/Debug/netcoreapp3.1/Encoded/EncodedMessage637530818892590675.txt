@@ -1,0 +1,7 @@
+Your private decode key: 
+B64-C14-S15
+Your public decode key: 
+
+Your Encoded Message: 
+MXNJNvohpSA=   KxUa7dagHmk=   
+File created: 03.04.2021 21:24:49

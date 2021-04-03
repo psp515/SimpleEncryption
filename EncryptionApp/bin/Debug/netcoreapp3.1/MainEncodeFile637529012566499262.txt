@@ -1,7 +1,0 @@
-New file created: 01.04.2021 19:14:16
-Your private decode key: 
-C00-C09-S07
-Your public decode key: 
-R13-P00-P09-F07
-Your Encoded Message: 
-6zraad 7usbuf 8btegk vuzfpt nggtz  

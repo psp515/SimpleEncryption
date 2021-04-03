@@ -1,0 +1,99 @@
+﻿using EncryptionApp.Ciphers.C_Classes;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace SimpleEncryption.ConsoleControl.Decryption
+{
+    public class Decode
+    {
+        public string Message { get; set; }
+        public string EncodedMessage { get; set; }
+        public string PublicKey { get; set; }
+        public string PrivateKey { get; set; }
+        public bool IsPublicKey { get; set; }
+
+        public Decode(string encodedMessage, string key)
+        {
+            EncodedMessage = encodedMessage;
+            SetKey(key);
+        }
+
+        private void SetKey(string key)
+        {
+            if (key.Length > 11)
+            {
+                IsPublicKey = true;
+                PublicKey = key;
+                PrivateKey = DecodePublicKey(key);
+            }
+            else
+            {
+                IsPublicKey = false;
+                PrivateKey = key;
+            }
+        }
+
+        private string DecodePublicKey(string key)
+        {
+            string encodedPart = key.Remove(0, 4);
+            string KeyCode = key[1].ToString() + key[2].ToString();
+            int a = Convert.ToInt32(KeyCode);
+
+            if (key[0] == 'F')
+            {
+                RailFenceCipher fc = new RailFenceCipher();
+                return fc.Decode(encodedPart, a);
+            }
+            else
+            {
+                CaesarVariation cs = new CaesarVariation();
+                return cs.Decode(encodedPart, a);
+            }
+        }
+
+        public void Process()
+        {
+            string Last = PrivateKey[0].ToString();
+            string middle = PrivateKey[4].ToString();
+            int b = Convert.ToInt32(PrivateKey[5].ToString() + PrivateKey[6].ToString());
+            string first = PrivateKey[8].ToString();
+            int a = Convert.ToInt32(PrivateKey[9].ToString() + PrivateKey[10].ToString());
+
+            EncodedMessage = DecodeSI(a, first, EncodedMessage);
+            EncodedMessage = DecodeSI(b, middle, EncodedMessage);
+            Message = DecodeS(Last, EncodedMessage);
+
+            End e = new End(Message);
+            e.EndDecode();
+        }
+
+        private string DecodeS(string code, string encodedMessage)
+        {
+            if (code == "B")
+            {
+                Base64 B = new Base64();
+                return B.Decode(encodedMessage);
+            }
+            else
+            {
+                Caesar c = new Caesar();
+                return c.Decode(encodedMessage);
+            }
+        }
+
+        private string DecodeSI(int a, string code, string eMessage)
+        {
+            if (code == "F")
+            {
+                RailFenceCipher fc = new RailFenceCipher();
+                return fc.Decode(eMessage, a);
+            }
+            else
+            {
+                CaesarVariation cv = new CaesarVariation();
+                return cv.Decode(eMessage, a);
+            }
+        }
+    }
+}
