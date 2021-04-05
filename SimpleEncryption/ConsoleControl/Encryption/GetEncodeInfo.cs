@@ -17,7 +17,7 @@ namespace SimpleEncryption.ConsoleControl.Encryption
             Action menu = delegate ()
             {
                 Helpers.TextBreak();
-                Console.WriteLine("List of possible options: \n[1] - Write message in console\n[2] - Write file name\n(press enter to Apply decision)");
+                Console.WriteLine("List of possible options: \n[1] - Write message in console\n[2] - Write file name (file should be at AppFolder/ToEncode)\n(press enter to Apply decision)");
                 Helpers.TextBreak();
             };
 
@@ -26,14 +26,17 @@ namespace SimpleEncryption.ConsoleControl.Encryption
 
         private void FindOption(int choice)
         {
+            Helpers.TextBreak();
             if (choice == 1)
             {
                 string message = Helpers.GetString("Please provide a message:");
+                Helpers.TextBreak();
                 StartEncode(message);
             }
             else if (choice == 2)
             {
                 string fileName = Helpers.GetString(string.Format("Please provide the file name:\n" + @"(write only file name, file should be in {0}\ToEncode)", Helpers.DirectoryPath));
+                Helpers.TextBreak();
                 FileManagement fileManagement = new FileManagement();
                 string message = fileManagement.ReadFileToEncode(fileName.Trim());
 

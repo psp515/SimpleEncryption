@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 
 namespace SimpleEncryption.ConsoleControl
 {
@@ -28,6 +29,7 @@ namespace SimpleEncryption.ConsoleControl
         {
             Console.Clear();
             Console.WriteLine("\t\t\tEncoded Menu");
+            Helpers.TextBreak();
             Console.WriteLine(string.Format("Your private decode key: \n{0}\nYour public decode key: \n{1}\nYour encoded Message: \n{2}\n(files created at{3})", PrivateKey, PublicKey, Message,Helpers.DirectoryPath));
            
             EndingProcess();
@@ -42,7 +44,12 @@ namespace SimpleEncryption.ConsoleControl
         }
         public void EndRandom()
         {
-            throw new NotImplementedException();
+            Console.Clear();
+            Console.WriteLine("Thanks for using my app.");
+            Thread.Sleep(1000);
+            Console.WriteLine("See ya!");
+            Thread.Sleep(2000);
+            Environment.Exit(0);
         }
 
         private void EndingProcess()

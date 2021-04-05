@@ -16,6 +16,13 @@ namespace SimpleEncryption.Files
             DirectioriesManagement directioriesManagement = new DirectioriesManagement();
             directioriesManagement.CreateMainDirectories(false);
         }
+        public FileManagement(string message)
+        {
+            DirectioriesManagement directioriesManagement = new DirectioriesManagement();
+            directioriesManagement.CreateMainDirectories(false);
+
+            Message = message;
+        }
         public FileManagement(string message,string privateKey, string publicKey) 
         {
             DirectioriesManagement directioriesManagement = new DirectioriesManagement();
@@ -26,13 +33,21 @@ namespace SimpleEncryption.Files
             PublicKey = publicKey;
         }
         
+        public void CreateDeocdedFile()
+        {
+            long s = DateTime.Now.Ticks;
+            string fullText = string.Format("Your Encoded Message: \n{0}", Message);
+            string fullFileName = Helpers.DirectoryPath + @"\Decoded\DecodedMessage" + s.ToString() + @".txt";
+
+            CreateFile(fullFileName, fullText);
+        }
 
         public void CreateEncodedFile()
         {
             long s = DateTime.Now.Ticks;
-            string FullText = string.Format("Your private decode key: \n{0}\nYour public decode key: \n{1}\nYour Encoded Message: \n{2}\nFile created: {3}", PrivateKey, PublicKey, Message,DateTime.Now);
-            string fullFileName = Helpers.DirectoryPath+@"\Encoded\EncodedMessage" + s.ToString() + @".txt";
-            string encodedFileName = Helpers.DirectoryPath + @"\Encoded\FullInfo" + s.ToString() + @".txt";
+            string FullText = string.Format("Your private decode key: \n{0}\nYour public decode key: (not working right now) \n{1}\nYour Encoded Message: \n{2}\nFile created: {3}", PrivateKey, PublicKey, Message,DateTime.Now);
+            string fullFileName = Helpers.DirectoryPath+ @"\Encoded\FullInfo" + s.ToString() + @".txt";
+            string encodedFileName = Helpers.DirectoryPath + @"\Encoded\EncodedMessage" + s.ToString() + @".txt";
 
             CreateFile(encodedFileName.Trim(), Message);
             CreateFile(fullFileName.Trim(), FullText);

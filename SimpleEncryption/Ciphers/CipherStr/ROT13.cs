@@ -6,7 +6,7 @@ namespace EncryptionApp.Ciphers.CipherStr
 {
     public class ROT13 : CipherStrClass
     {
-        protected override string CipherCode { get; set; } = "R13";
+        protected override string CipherCode { get; set; } = "R00";
 
         public override string Decode(string message)
         {

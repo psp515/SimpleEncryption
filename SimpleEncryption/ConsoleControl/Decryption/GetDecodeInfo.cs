@@ -15,7 +15,7 @@ namespace SimpleEncryption.ConsoleControl.Decryption
             Console.Clear();
             Console.WriteLine("\t\t\tAttachment Menu");
             Key = Helpers.GetString("Please provide the key:");
-            
+            Helpers.TextBreak();
             GetStringMessage();
         }
 
@@ -26,7 +26,7 @@ namespace SimpleEncryption.ConsoleControl.Decryption
             Action menu = delegate ()
             {
                 Helpers.TextBreak();
-                Console.WriteLine("List of possible options: \n[1] - Write message in console\n[2] - Write file name\n[3] - Restart Decoding\n(press enter to Apply decision)");
+                Console.WriteLine("List of possible options: \n[1] - Write message in console\n[2] - Write file name (write only file name, file should be in {0}/ToDecode)\n[3] - Restart Decoding\n(press enter to Apply decision)");
                 Helpers.TextBreak();
             };
             FindOption(Helpers.GetUserChoice(menu, 1, 3, "Attachment"));
@@ -37,17 +37,20 @@ namespace SimpleEncryption.ConsoleControl.Decryption
             if (choice == 1)
             {
                 EncodedMessage = Helpers.GetString("Please provide a message:");
+                EncodedMessage.Trim();
+                Helpers.TextBreak();
                 StartDecode();
             }
             else if (choice == 2)
             {
-                string fileName = Helpers.GetString(string.Format("Please provide the file name:\n" + @"(write only file name, file should be in {0}\ToEncode)", Helpers.DirectoryPath));
+                string fileName = Helpers.GetString(string.Format("Please provide the file name:\n" + @"(write only file name, file should be in {0}\ToDecode)", Helpers.DirectoryPath));
+                Helpers.TextBreak();
                 FileManagement fileManagement = new FileManagement();
                 string message = fileManagement.ReadFileToDecode(fileName.Trim());
 
                 if (message == null)
                     FileNotFound();
-                EncodedMessage = message;
+                EncodedMessage = message.Trim();
                 StartDecode();
             }
             else if (choice == 3)
@@ -69,7 +72,7 @@ namespace SimpleEncryption.ConsoleControl.Decryption
         private void FileNotFound()
         {
             Console.Clear();
-            Console.WriteLine(@"Sorry app coudn't find this file or file has no content. Please check if file is in {0}\ToEncode or has anything to Encode.");
+            Console.WriteLine(@"Sorry app coudn't find this file or file has no content. Please check if file is in {0}\ToDecode or has anything to Encode.");
             Thread.Sleep(2500);
             GetStringMessage();
         }
@@ -77,7 +80,6 @@ namespace SimpleEncryption.ConsoleControl.Decryption
         private void StartDecode()
         {
             Decode decode = new Decode(EncodedMessage,Key);
-            decode.Process();
         }
     }
 }

@@ -47,6 +47,7 @@ namespace SimpleEncryption
             Console.WriteLine("\t\t\tTaking Input");
             TextBreak();
             Console.WriteLine(description);
+            TextBreak();
             return Console.ReadLine();
         }
         private static int GetIntChoice()
@@ -62,7 +63,7 @@ namespace SimpleEncryption
         internal static void SpecificUnauthorizedException()
         {
             Console.Clear();
-            Console.WriteLine("If u see this message you shoud run this app as administrator.");
+            Console.WriteLine("If u see this message you shoud run this app as administrator or change the folder with app.");
             Thread.Sleep(6000);
             Environment.Exit(0);
         }

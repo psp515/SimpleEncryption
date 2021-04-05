@@ -1,6 +1,9 @@
 ﻿using EncryptionApp.Ciphers.C_Classes;
+using EncryptionApp.Ciphers.CipherStr;
+using SimpleEncryption.Files;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace SimpleEncryption.ConsoleControl.Decryption
@@ -11,27 +14,27 @@ namespace SimpleEncryption.ConsoleControl.Decryption
         public string EncodedMessage { get; set; }
         public string PublicKey { get; set; }
         public string PrivateKey { get; set; }
-        public bool IsPublicKey { get; set; }
+        
 
         public Decode(string encodedMessage, string key)
         {
-            EncodedMessage = encodedMessage;
-            SetKey(key);
+            EncodedMessage=DeleteDigit(encodedMessage);
+            PrivateKey=SetKey(key);
+            Process();
         }
 
-        private void SetKey(string key)
+        private string DeleteDigit(string encodedMessage)=> encodedMessage.Remove(encodedMessage.Length - 1);
+
+        private string SetKey(string key)
         {
             if (key.Length > 11)
             {
-                IsPublicKey = true;
                 PublicKey = key;
-                PrivateKey = DecodePublicKey(key);
+                return DecodePublicKey(key);
             }
             else
-            {
-                IsPublicKey = false;
-                PrivateKey = key;
-            }
+                return key;
+            
         }
 
         private string DecodePublicKey(string key)
@@ -42,27 +45,41 @@ namespace SimpleEncryption.ConsoleControl.Decryption
 
             if (key[0] == 'F')
             {
-                RailFenceCipher fc = new RailFenceCipher();
-                return fc.Decode(encodedPart, a);
+                RailFenceCipher railFenceCipher = new RailFenceCipher();
+                return railFenceCipher.Decode(encodedPart, a);
             }
             else
             {
-                CaesarVariation cs = new CaesarVariation();
-                return cs.Decode(encodedPart, a);
+                CaesarVariation caesarVariation = new CaesarVariation();
+                return caesarVariation.Decode(encodedPart, a);
             }
         }
 
         public void Process()
         {
-            string Last = PrivateKey[0].ToString();
-            string middle = PrivateKey[4].ToString();
-            int b = Convert.ToInt32(PrivateKey[5].ToString() + PrivateKey[6].ToString());
-            string first = PrivateKey[8].ToString();
-            int a = Convert.ToInt32(PrivateKey[9].ToString() + PrivateKey[10].ToString());
+            string Last = "";
+            string middle = "";
+            string first = "";
+            int a = 0;
+            try
+            {
+                Last = PrivateKey[0].ToString();
+                middle = PrivateKey[4].ToString();
+                first = PrivateKey[8].ToString();
+                a = Convert.ToInt32(PrivateKey[9].ToString() + PrivateKey[10].ToString());
+            }
+            catch 
+            {
+                Helpers.Error();
+            }
+            
 
             EncodedMessage = DecodeSI(a, first, EncodedMessage);
-            EncodedMessage = DecodeSI(b, middle, EncodedMessage);
+            EncodedMessage = DecodeS(middle, EncodedMessage);
             Message = DecodeS(Last, EncodedMessage);
+
+            FileManagement fileManagement = new FileManagement(Message);
+            fileManagement.CreateDeocdedFile();
 
             End e = new End(Message);
             e.EndDecode();
@@ -75,10 +92,24 @@ namespace SimpleEncryption.ConsoleControl.Decryption
                 Base64 B = new Base64();
                 return B.Decode(encodedMessage);
             }
-            else
+            else if (code == "R")
+            {
+                ROT13 ROT = new ROT13();
+                return ROT.Decode(encodedMessage);
+            }
+            else if(code == "T")
+            {
+                ROT18 ROT = new ROT18();
+                return ROT.Decode(encodedMessage);
+            }
+            else if (code == "C")
             {
                 Caesar c = new Caesar();
                 return c.Decode(encodedMessage);
+            }
+            else 
+            {
+                return "Error";
             }
         }
 
@@ -86,13 +117,22 @@ namespace SimpleEncryption.ConsoleControl.Decryption
         {
             if (code == "F")
             {
-                RailFenceCipher fc = new RailFenceCipher();
-                return fc.Decode(eMessage, a);
+                RailFenceCipher railFenceCipher = new RailFenceCipher();
+                return railFenceCipher.Decode(eMessage, a);
+            }
+            if (code == "S")
+            {
+                RailFenceCipher railFenceCipher = new RailFenceCipher();
+                return railFenceCipher.Decode(eMessage, a);
+            }
+            else if (code == "C")
+            {
+                CaesarVariation caesarVariation = new CaesarVariation();
+                return caesarVariation.Decode(eMessage, a);
             }
             else
             {
-                CaesarVariation cv = new CaesarVariation();
-                return cv.Decode(eMessage, a);
+                return "Error";
             }
         }
     }
