@@ -36,23 +36,12 @@ namespace SimpleEncryption.ConsoleControl.Decryption
                 return key;
             
         }
-
+       
         private string DecodePublicKey(string key)
         {
             string encodedPart = key.Remove(0, 4);
-            string KeyCode = key[1].ToString() + key[2].ToString();
-            int a = Convert.ToInt32(KeyCode);
 
-            if (key[0] == 'F')
-            {
-                RailFenceCipher railFenceCipher = new RailFenceCipher();
-                return railFenceCipher.Decode(encodedPart, a);
-            }
-            else
-            {
-                CaesarVariation caesarVariation = new CaesarVariation();
-                return caesarVariation.Decode(encodedPart, a);
-            }
+            return DecodeS(key[0].ToString(),encodedPart);
         }
 
         public void Process()

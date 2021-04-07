@@ -1,0 +1,32 @@
+﻿<Properties StartupConfiguration="{6CDF755E-4151-4FF2-A7B3-9976C8384A5D}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Helpers.cs">
+    <Files>
+      <File FileName="Program.cs" Line="1" Column="1" />
+      <File FileName="ConsoleControl/Encryption/Encode.cs" Line="124" Column="14" />
+      <File FileName="ConsoleControl/Decryption/Decode.cs" Line="39" Column="8" />
+      <File FileName="Helpers.cs" Line="27" Column="36" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="SimpleEncryption" expanded="True">
+            <Node name="SimpleEncryption" expanded="True">
+              <Node name="ConsoleControl" expanded="True">
+                <Node name="Decryption" expanded="True" />
+                <Node name="Encryption" expanded="True" />
+              </Node>
+              <Node name="Helpers.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.SimpleEncryption PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

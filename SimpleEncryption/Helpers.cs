@@ -24,7 +24,7 @@ namespace SimpleEncryption
             if (choice < choiceMin || choice > choiceMax || choice == -1)
             {
                 Console.Clear();
-                Console.WriteLine(" Moving to {0} menu. Please choose correct option...", menuName);
+                Console.WriteLine("Moving to {0} menu. Please choose correct option...", menuName);
                 Thread.Sleep(2000);
                 Console.Clear();
                 return -1;
