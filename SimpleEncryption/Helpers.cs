@@ -6,7 +6,7 @@ using System.Threading;
 
 namespace SimpleEncryption
 {
-    public class Helpers
+    public static class Helpers
     {
         public static string DirectoryPath { get; set; }
         public static bool isFirstTime { get; set; } = true;
