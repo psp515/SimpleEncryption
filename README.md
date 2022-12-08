@@ -16,9 +16,6 @@
     <a href="https://github.com/psp515/SimpleEncryption/issues/">
       <img src="https://img.shields.io/github/issues/psp515/SimpleEncryption" alt="open issues" />
     </a>
-    <a href="https://github.com/psp515/SimpleEncryption/blob/master/LICENSE">
-      <img src="https://img.shields.io/github/license/psp515/SimpleEncryption" alt="license" />
-    </a>
   </div>
 </div>  
 
@@ -56,10 +53,6 @@ User writes writes the DecodeKey in console and after that user writes the messa
 ### Usage 
 
 Repository shows how some simple ciphers works.
-
-### License
-
-Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 ### Roadmap
 
